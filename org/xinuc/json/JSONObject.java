@@ -1,7 +1,8 @@
 // Generated from JSONObject.mirah
+package org.xinuc.json;
 public class JSONObject extends java.lang.Object {
   public static void main(java.lang.String[] argv) {
-  public static java.util.HashMap parse(JSONTokenizer token) {
+  public static java.util.HashMap parse(org.xinuc.json.JSONTokenizer token) {
     java.util.HashMap hash = null;
     char c = 0;
     java.lang.String key = null;
@@ -9,7 +10,7 @@ public class JSONObject extends java.lang.Object {
     if ((token.nextClean() == 123)) {
     }
     else {
-      throw new java.lang.RuntimeException("Invalid: Must begin with '{'");
+      throw token.error("Invalid: Must begin with '{'");
     }
     label1:
     while (true) {
@@ -17,19 +18,19 @@ public class JSONObject extends java.lang.Object {
        {
         c = token.nextClean();
         if ((c == 0)) {
-          throw new java.lang.RuntimeException("Invalid: Must end with '}'");
+          throw token.error("Invalid: Must end with '}'");
         }
         if ((c == 125)) {
           break label1;
         }
-        JSONTokenizer temp$3 = token;
+        org.xinuc.json.JSONTokenizer temp$3 = token;
         temp$3.back();
         key = token.nextValue().toString();
         c = token.nextClean();
         if ((c == 58)) {
         }
         else {
-          throw new java.lang.RuntimeException("Invalid: ':' expected after key '" + key + "'");
+          throw token.error("Invalid: ':' expected after key '" + key + "'");
         }
         hash.put(key, token.nextValue());
         c = token.nextClean();
@@ -39,7 +40,7 @@ public class JSONObject extends java.lang.Object {
         if ((c == 44)) {
         }
         else {
-          throw new java.lang.RuntimeException("Expected a ',' or '}', got " + c);
+          throw token.error("Expected a ',' or '}', got " + c);
         }
       }
     }

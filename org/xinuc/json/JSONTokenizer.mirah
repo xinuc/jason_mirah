@@ -1,3 +1,5 @@
+package org.xinuc.json
+
 class JSONTokenizer
 
   def initialize(str:String)
@@ -35,12 +37,12 @@ class JSONTokenizer
 
   def next(c:char):char
     n = self.next
-    raise "Expected '#{c}' and instead saw '#{n}'" unless c == n
+    raise error("Expected '#{c}' and instead saw '#{n}'") unless c == n
     n
   end
 
   def next(n:int):String
-    raise "Substring bounds error" if @index + n > @source.length
+    raise error("Substring bounds error") if @index + n > @source.length
     start = @index
     @index += n
     @source.substring(start, @index)
@@ -61,7 +63,7 @@ class JSONTokenizer
     while true
       c = self.next
       if c == 0 || c == 10 || c == 13 # raise exception if string terminated
-        raise "Unterminated string"
+        raise error("Unterminated string")
       elsif c == 92 # process escaped chars '\'
         c = self.next
         if c == 98 # 'b'
@@ -82,7 +84,7 @@ class JSONTokenizer
           # buffer.append (char Integer.parseInt(self.next(2), 16)) # ascii
         else # everything else, just ignore the '\'
           # buffer.append c
-          raise "Unexpected token '#{char c}'" # raise it, cause that's what the spec says
+          raise error("Unexpected token '#{char c}'") # raise it, cause that's what the spec says
         end
       else
         if c == 34 # break if find '"'
@@ -152,7 +154,7 @@ class JSONTokenizer
 
     str = buffer.toString.trim
 
-    raise "Missing value." if str.equals ""
+    raise error("Missing value.") if str.equals ""
 
     # boolean (true, false), null
     return Boolean.new(true) if str.equals "true"
@@ -167,11 +169,11 @@ class JSONTokenizer
         begin
           Double.valueOf str
         rescue Exception
-          raise "Invalid value '#{str}'"
+          raise error("Invalid value '#{str}'")
         end
       end
     end
-    raise "Invalid value '#{str}'"
+    raise error("Invalid value '#{str}'")
   end
 
   def skipTo(to:char):char
@@ -199,6 +201,10 @@ class JSONTokenizer
 
   def toString
     return " at character #{@index} of #{@source}"
+  end
+
+  def error(message:String)
+    JSONException.new message + self.toString
   end
 
 end

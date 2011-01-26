@@ -1,7 +1,9 @@
 // Generated from JSONTokenizer.mirah
+package org.xinuc.json;
 public class JSONTokenizer extends java.lang.Object {
   private int index;
   private java.lang.String source;
+  public static void main(java.lang.String[] argv) {
   public  JSONTokenizer(java.lang.String str) {
     this.index = 0;
     this.source = str;
@@ -34,14 +36,14 @@ public class JSONTokenizer extends java.lang.Object {
     if ((c == n)) {
     }
     else {
-      throw new java.lang.RuntimeException("Expected '" + c + "' and instead saw '" + n + "'");
+      throw this.error("Expected '" + c + "' and instead saw '" + n + "'");
     }
     return n;
   }
   public java.lang.String next(int n) {
     int start = 0;
     if (((this.index + n) > this.source.length())) {
-      throw new java.lang.RuntimeException("Substring bounds error");
+      throw this.error("Substring bounds error");
     }
     start = this.index;
     this.index = (this.index + n);
@@ -79,7 +81,7 @@ public class JSONTokenizer extends java.lang.Object {
         __xform_tmp_2 = temp$4;
         temp$3 = __xform_tmp_2 ? (__xform_tmp_2) : ((c == 13));
         if (temp$3) {
-          throw new java.lang.RuntimeException("Unterminated string");
+          throw this.error("Unterminated string");
         }
         else {
           if ((c == 92)) {
@@ -112,7 +114,7 @@ public class JSONTokenizer extends java.lang.Object {
                           buffer.append(((char)(java.lang.Integer.parseInt(this.next(4), 16))));
                         }
                         else {
-                          throw new java.lang.RuntimeException("Unexpected token '" + ((char)(c)) + "'");
+                          throw this.error("Unexpected token '" + ((char)(c)) + "'");
                         }
                       }
                     }
@@ -212,14 +214,14 @@ public class JSONTokenizer extends java.lang.Object {
       return this.nextString();
     }
     if ((c == 123)) {
-      JSONTokenizer temp$1 = this;
+      org.xinuc.json.JSONTokenizer temp$1 = this;
       temp$1.back();
-      return JSONObject.parse(this);
+      return org.xinuc.json.JSONObject.parse(this);
     }
     if ((c == 91)) {
-      JSONTokenizer temp$2 = this;
+      org.xinuc.json.JSONTokenizer temp$2 = this;
       temp$2.back();
-      return JSONArray.parse(this);
+      return org.xinuc.json.JSONArray.parse(this);
     }
     buffer = new java.lang.StringBuffer();
     iter = c;
@@ -234,7 +236,7 @@ public class JSONTokenizer extends java.lang.Object {
     this.back();
     java.lang.String str = buffer.toString().trim();
     if (str.equals("")) {
-      throw new java.lang.RuntimeException("Missing value.");
+      throw this.error("Missing value.");
     }
     if (str.equals("true")) {
       return new java.lang.Boolean(true);
@@ -257,11 +259,11 @@ public class JSONTokenizer extends java.lang.Object {
           return java.lang.Double.valueOf(str);
         }
         catch (java.lang.Exception tmp$ex$2030) {
-          throw new java.lang.RuntimeException("Invalid value '" + str + "'");
+          throw this.error("Invalid value '" + str + "'");
         }
       }
     }
-    throw new java.lang.RuntimeException("Invalid value '" + str + "'");
+    throw this.error("Invalid value '" + str + "'");
   }
   public char skipTo(char to) {
     char c = 0;
@@ -293,5 +295,8 @@ public class JSONTokenizer extends java.lang.Object {
   }
   public java.lang.String toString() {
     return " at character " + this.index + " of " + this.source;
+  }
+  public org.xinuc.json.JSONException error(java.lang.String message) {
+    return new org.xinuc.json.JSONException((message + this.toString()));
   }
 }

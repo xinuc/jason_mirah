@@ -1,3 +1,5 @@
+package org.xinuc.json
+
 class JSON
   def self.parse(str:string):Object
     token = JSONTokenizer.new(str)
@@ -10,6 +12,6 @@ class JSON
       token.back
       return JSONArray.parse(token)
     end
-    raise "Invalid JSON"
+    raise token.error("Invalid JSON. It should be begin with a '{' or '['")
   end
 end

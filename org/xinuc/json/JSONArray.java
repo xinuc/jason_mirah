@@ -1,19 +1,20 @@
 // Generated from JSONArray.mirah
+package org.xinuc.json;
 public class JSONArray extends java.lang.Object {
   public static void main(java.lang.String[] argv) {
-  public static java.util.ArrayList parse(JSONTokenizer token) {
+  public static java.util.ArrayList parse(org.xinuc.json.JSONTokenizer token) {
     java.util.ArrayList array = null;
     char c = 0;
     array = new java.util.ArrayList();
     if ((token.nextClean() == 91)) {
     }
     else {
-      throw new java.lang.RuntimeException("Invalid: Must begin with '['");
+      throw token.error("Invalid: Must begin with '['");
     }
     if ((token.nextClean() == 93)) {
       return array;
     }
-    JSONTokenizer temp$1 = token;
+    org.xinuc.json.JSONTokenizer temp$1 = token;
     temp$1.back();
     label2:
     while (true) {
@@ -27,7 +28,7 @@ public class JSONArray extends java.lang.Object {
         if ((c == 44)) {
         }
         else {
-          throw new java.lang.RuntimeException("Expected a ',' or ']', got " + c);
+          throw token.error("Expected a ',' or ']', got " + c);
         }
       }
     }
