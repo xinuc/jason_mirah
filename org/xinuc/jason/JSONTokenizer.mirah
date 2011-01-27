@@ -159,7 +159,7 @@ class JSONTokenizer
     # boolean (true, false), null
     return Boolean.TRUE if str.equals "true"
     return Boolean.FALSE if str.equals "false"
-    return nil if str.equals "null"
+    return JSONNull.NULL if str.equals "null"
 
     # number (integer, float)
     if (c >= 48 && c <= 57) || (c == 45) # between '0'..'9' or '-'

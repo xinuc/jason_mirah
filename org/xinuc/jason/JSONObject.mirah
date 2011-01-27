@@ -30,4 +30,5 @@ class JSONObject
   def self.stringfy(hash:Hashtable):String
     ""
   end
+
 end

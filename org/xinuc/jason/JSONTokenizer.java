@@ -241,7 +241,7 @@ public class JSONTokenizer extends java.lang.Object {
       return java.lang.Boolean.FALSE;
     }
     if (str.equals("null")) {
-      return null;
+      return org.xinuc.jason.JSONNull.NULL();
     }
     boolean temp$5 = false;
     __xform_tmp_10 = (c >= 48) ? ((c <= 57)) : (false);
