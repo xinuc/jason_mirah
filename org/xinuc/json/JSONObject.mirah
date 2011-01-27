@@ -1,10 +1,10 @@
 package org.xinuc.json
 
-import java.util.HashMap
+import java.util.Hashtable
 
 class JSONObject
-  def self.parse(token:JSONTokenizer):HashMap
-    hash = HashMap.new
+  def self.parse(token:JSONTokenizer):Hashtable
+    hash = Hashtable.new
     raise token.error("Invalid: Must begin with '{'") unless token.nextClean == 123
     while true
       c = token.nextClean
@@ -17,7 +17,7 @@ class JSONObject
       c = token.nextClean
       raise token.error("Invalid: ':' expected after key '#{key}'") unless c == 58 # ':'
 
-      #put the valid value into the hashmap
+      #put the valid value into the hashtable
       hash.put(key, token.nextValue)
 
       c = token.nextClean
@@ -27,7 +27,7 @@ class JSONObject
     hash
   end
 
-  def self.stringfy(hash:HashMap):String
+  def self.stringfy(hash:Hashtable):String
     ""
   end
 end

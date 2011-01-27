@@ -35,7 +35,7 @@ class JSONTokenizer
     end
   end
 
-  def next(c:char):char
+  def next(c:char):char throws JSONException
     n = self.next
     raise error("Expected '#{c}' and instead saw '#{n}'") unless c == n
     n
@@ -157,8 +157,8 @@ class JSONTokenizer
     raise error("Missing value.") if str.equals ""
 
     # boolean (true, false), null
-    return Boolean.new(true) if str.equals "true"
-    return Boolean.new(false) if str.equals "false"
+    return Boolean.TRUE if str.equals "true"
+    return Boolean.FALSE if str.equals "false"
     return nil if str.equals "null"
 
     # number (integer, float)

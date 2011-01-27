@@ -30,7 +30,7 @@ public class JSONTokenizer extends java.lang.Object {
       return 0;
     }
   }
-  public char next(char c) {
+  public char next(char c) throws org.xinuc.json.JSONException {
     char n = 0;
     n = this.next();
     if ((c == n)) {
@@ -239,10 +239,10 @@ public class JSONTokenizer extends java.lang.Object {
       throw this.error("Missing value.");
     }
     if (str.equals("true")) {
-      return new java.lang.Boolean(true);
+      return java.lang.Boolean.TRUE;
     }
     if (str.equals("false")) {
-      return new java.lang.Boolean(false);
+      return java.lang.Boolean.FALSE;
     }
     if (str.equals("null")) {
       return null;

@@ -2,10 +2,10 @@
 package org.xinuc.json;
 public class JSONArray extends java.lang.Object {
   public static void main(java.lang.String[] argv) {
-  public static java.util.ArrayList parse(org.xinuc.json.JSONTokenizer token) {
-    java.util.ArrayList array = null;
+  public static java.util.Vector parse(org.xinuc.json.JSONTokenizer token) {
+    java.util.Vector array = null;
     char c = 0;
-    array = new java.util.ArrayList();
+    array = new java.util.Vector();
     if ((token.nextClean() == 91)) {
     }
     else {
@@ -20,7 +20,8 @@ public class JSONArray extends java.lang.Object {
     while (true) {
       label3:
        {
-        array.add(token.nextValue());
+        java.util.Vector temp$4 = array;
+        temp$4.addElement(token.nextValue());
         c = token.nextClean();
         if ((c == 93)) {
           break label2;

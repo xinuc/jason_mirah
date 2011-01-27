@@ -2,11 +2,11 @@
 package org.xinuc.json;
 public class JSONObject extends java.lang.Object {
   public static void main(java.lang.String[] argv) {
-  public static java.util.HashMap parse(org.xinuc.json.JSONTokenizer token) {
-    java.util.HashMap hash = null;
+  public static java.util.Hashtable parse(org.xinuc.json.JSONTokenizer token) {
+    java.util.Hashtable hash = null;
     char c = 0;
     java.lang.String key = null;
-    hash = new java.util.HashMap();
+    hash = new java.util.Hashtable();
     if ((token.nextClean() == 123)) {
     }
     else {
@@ -46,7 +46,7 @@ public class JSONObject extends java.lang.Object {
     }
     return hash;
   }
-  public static java.lang.String stringfy(java.util.HashMap hash) {
+  public static java.lang.String stringfy(java.util.Hashtable hash) {
     return "";
   }
 }
