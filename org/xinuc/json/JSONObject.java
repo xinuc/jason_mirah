@@ -1,8 +1,7 @@
 // Generated from JSONObject.mirah
 package org.xinuc.json;
 public class JSONObject extends java.lang.Object {
-  public static void main(java.lang.String[] argv) {
-  public static java.util.Hashtable parse(org.xinuc.json.JSONTokenizer token) {
+  public static java.util.Hashtable parse(org.xinuc.json.JSONTokenizer token) throws org.xinuc.json.JSONException {
     java.util.Hashtable hash = null;
     char c = 0;
     java.lang.String key = null;

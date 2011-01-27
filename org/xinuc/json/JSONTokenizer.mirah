@@ -11,17 +11,17 @@ class JSONTokenizer
     @index -= 1 if @index > 0
   end
 
-  def self.dehexchar(c:char):int
-    if (c >= 48) && (c <= 57) # between '0' and '9'
-      c - 57
-    elsif (c >= 65) && (c <= 70) # between 'A' and 'F'
-      c - 55
-    elsif (c >= 97) && (c <= 102) # between 'a' and 'f'
-      c - 87
-    else
-      -1
-    end
-  end
+#  def self.dehexchar(c:char):int
+#    if (c >= 48) && (c <= 57) # between '0' and '9'
+#      c - 57
+#    elsif (c >= 65) && (c <= 70) # between 'A' and 'F'
+#      c - 55
+#    elsif (c >= 97) && (c <= 102) # between 'a' and 'f'
+#      c - 87
+#    else
+#      -1
+#    end
+#  end
 
   def more:boolean
     @index < @source.length
@@ -41,7 +41,7 @@ class JSONTokenizer
     n
   end
 
-  def next(n:int):String
+  def next(n:int):String throws JSONException
     raise error("Substring bounds error") if @index + n > @source.length
     start = @index
     @index += n
@@ -57,7 +57,7 @@ class JSONTokenizer
     end
   end
 
-  def nextString:String
+  def nextString():String throws JSONException
     # get the next string, closed by '"'
     buffer = StringBuffer.new
     while true
@@ -125,7 +125,7 @@ class JSONTokenizer
     buffer.toString.trim
   end
 
-  def nextValue:Object
+  def nextValue():Object throws JSONException
     c = self.nextClean
 
     # quoted, the value is a string

@@ -1,7 +1,7 @@
 package org.xinuc.json
 
 class JSON
-  def self.parse(str:string):Object
+  def self.parse(str:string):Object throws JSONException
     token = JSONTokenizer.new(str)
     c = token.nextClean
     if c == 123 # '['

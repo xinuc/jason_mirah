@@ -1,8 +1,7 @@
 // Generated from JSONArray.mirah
 package org.xinuc.json;
 public class JSONArray extends java.lang.Object {
-  public static void main(java.lang.String[] argv) {
-  public static java.util.Vector parse(org.xinuc.json.JSONTokenizer token) {
+  public static java.util.Vector parse(org.xinuc.json.JSONTokenizer token) throws org.xinuc.json.JSONException {
     java.util.Vector array = null;
     char c = 0;
     array = new java.util.Vector();

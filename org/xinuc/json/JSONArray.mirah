@@ -3,7 +3,7 @@ package org.xinuc.json
 import java.util.Vector
 
 class JSONArray
-  def self.parse(token:JSONTokenizer):Vector
+  def self.parse(token:JSONTokenizer):Vector throws JSONException
     array = Vector.new
     raise token.error("Invalid: Must begin with '['") unless token.nextClean == 91 # '['
     return array if token.nextClean == 93 # ']'

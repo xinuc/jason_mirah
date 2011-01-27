@@ -1,8 +1,7 @@
 // Generated from JSON.mirah
 package org.xinuc.json;
 public class JSON extends java.lang.Object {
-  public static void main(java.lang.String[] argv) {
-  public static java.lang.Object parse(java.lang.String str) {
+  public static java.lang.Object parse(java.lang.String str) throws org.xinuc.json.JSONException {
     org.xinuc.json.JSONTokenizer token = null;
     char c = 0;
     token = new org.xinuc.json.JSONTokenizer(str);

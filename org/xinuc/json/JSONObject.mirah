@@ -3,7 +3,7 @@ package org.xinuc.json
 import java.util.Hashtable
 
 class JSONObject
-  def self.parse(token:JSONTokenizer):Hashtable
+  def self.parse(token:JSONTokenizer):Hashtable throws JSONException
     hash = Hashtable.new
     raise token.error("Invalid: Must begin with '{'") unless token.nextClean == 123
     while true

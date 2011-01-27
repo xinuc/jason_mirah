@@ -3,7 +3,6 @@ package org.xinuc.json;
 public class JSONTokenizer extends java.lang.Object {
   private int index;
   private java.lang.String source;
-  public static void main(java.lang.String[] argv) {
   public  JSONTokenizer(java.lang.String str) {
     this.index = 0;
     this.source = str;
@@ -12,9 +11,6 @@ public class JSONTokenizer extends java.lang.Object {
     if ((this.index > 0)) {
       this.index = (this.index - 1);
     }
-  }
-  public static int dehexchar(char c) {
-    return (c >= 48) ? ((c <= 57)) : (false) ? ((c - 57)) : ((c >= 65) ? ((c <= 70)) : (false) ? ((c - 55)) : ((c >= 97) ? ((c <= 102)) : (false) ? ((c - 87)) : (-1)));
   }
   public boolean more() {
     return (this.index < this.source.length());
@@ -40,7 +36,7 @@ public class JSONTokenizer extends java.lang.Object {
     }
     return n;
   }
-  public java.lang.String next(int n) {
+  public java.lang.String next(int n) throws org.xinuc.json.JSONException {
     int start = 0;
     if (((this.index + n) > this.source.length())) {
       throw this.error("Substring bounds error");
@@ -63,7 +59,7 @@ public class JSONTokenizer extends java.lang.Object {
       return this.nextClean();
     }
   }
-  public java.lang.String nextString() {
+  public java.lang.String nextString() throws org.xinuc.json.JSONException {
     java.lang.StringBuffer buffer = null;
     char c = 0;
     boolean __xform_tmp_2 = false;
@@ -204,7 +200,7 @@ public class JSONTokenizer extends java.lang.Object {
     }
     return buffer.toString().trim();
   }
-  public java.lang.Object nextValue() {
+  public java.lang.Object nextValue() throws org.xinuc.json.JSONException {
     char c = 0;
     java.lang.StringBuffer buffer = null;
     char iter = 0;
