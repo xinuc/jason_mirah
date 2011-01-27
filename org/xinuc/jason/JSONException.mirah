@@ -1,4 +1,4 @@
-package org.xinuc.json
+package org.xinuc.jason
 
 class JSONException < Exception
   def initialize(message:String)

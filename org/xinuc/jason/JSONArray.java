@@ -1,7 +1,7 @@
 // Generated from JSONArray.mirah
-package org.xinuc.json;
+package org.xinuc.jason;
 public class JSONArray extends java.lang.Object {
-  public static java.util.Vector parse(org.xinuc.json.JSONTokenizer token) throws org.xinuc.json.JSONException {
+  public static java.util.Vector parse(org.xinuc.jason.JSONTokenizer token) throws org.xinuc.jason.JSONException {
     java.util.Vector array = null;
     char c = 0;
     array = new java.util.Vector();
@@ -13,7 +13,7 @@ public class JSONArray extends java.lang.Object {
     if ((token.nextClean() == 93)) {
       return array;
     }
-    org.xinuc.json.JSONTokenizer temp$1 = token;
+    org.xinuc.jason.JSONTokenizer temp$1 = token;
     temp$1.back();
     label2:
     while (true) {

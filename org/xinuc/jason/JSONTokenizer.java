@@ -1,5 +1,5 @@
 // Generated from JSONTokenizer.mirah
-package org.xinuc.json;
+package org.xinuc.jason;
 public class JSONTokenizer extends java.lang.Object {
   private int index;
   private java.lang.String source;
@@ -26,7 +26,7 @@ public class JSONTokenizer extends java.lang.Object {
       return 0;
     }
   }
-  public char next(char c) throws org.xinuc.json.JSONException {
+  public char next(char c) throws org.xinuc.jason.JSONException {
     char n = 0;
     n = this.next();
     if ((c == n)) {
@@ -36,7 +36,7 @@ public class JSONTokenizer extends java.lang.Object {
     }
     return n;
   }
-  public java.lang.String next(int n) throws org.xinuc.json.JSONException {
+  public java.lang.String next(int n) throws org.xinuc.jason.JSONException {
     int start = 0;
     if (((this.index + n) > this.source.length())) {
       throw this.error("Substring bounds error");
@@ -59,7 +59,7 @@ public class JSONTokenizer extends java.lang.Object {
       return this.nextClean();
     }
   }
-  public java.lang.String nextString() throws org.xinuc.json.JSONException {
+  public java.lang.String nextString() throws org.xinuc.jason.JSONException {
     java.lang.StringBuffer buffer = null;
     char c = 0;
     boolean __xform_tmp_2 = false;
@@ -200,7 +200,7 @@ public class JSONTokenizer extends java.lang.Object {
     }
     return buffer.toString().trim();
   }
-  public java.lang.Object nextValue() throws org.xinuc.json.JSONException {
+  public java.lang.Object nextValue() throws org.xinuc.jason.JSONException {
     char c = 0;
     java.lang.StringBuffer buffer = null;
     char iter = 0;
@@ -210,14 +210,14 @@ public class JSONTokenizer extends java.lang.Object {
       return this.nextString();
     }
     if ((c == 123)) {
-      org.xinuc.json.JSONTokenizer temp$1 = this;
+      org.xinuc.jason.JSONTokenizer temp$1 = this;
       temp$1.back();
-      return org.xinuc.json.JSONObject.parse(this);
+      return org.xinuc.jason.JSONObject.parse(this);
     }
     if ((c == 91)) {
-      org.xinuc.json.JSONTokenizer temp$2 = this;
+      org.xinuc.jason.JSONTokenizer temp$2 = this;
       temp$2.back();
-      return org.xinuc.json.JSONArray.parse(this);
+      return org.xinuc.jason.JSONArray.parse(this);
     }
     buffer = new java.lang.StringBuffer();
     iter = c;
@@ -292,7 +292,7 @@ public class JSONTokenizer extends java.lang.Object {
   public java.lang.String toString() {
     return " at character " + this.index + " of " + this.source;
   }
-  public org.xinuc.json.JSONException error(java.lang.String message) {
-    return new org.xinuc.json.JSONException((message + this.toString()));
+  public org.xinuc.jason.JSONException error(java.lang.String message) {
+    return new org.xinuc.jason.JSONException((message + this.toString()));
   }
 }

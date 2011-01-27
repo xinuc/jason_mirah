@@ -1,7 +1,7 @@
 // Generated from JSONObject.mirah
-package org.xinuc.json;
+package org.xinuc.jason;
 public class JSONObject extends java.lang.Object {
-  public static java.util.Hashtable parse(org.xinuc.json.JSONTokenizer token) throws org.xinuc.json.JSONException {
+  public static java.util.Hashtable parse(org.xinuc.jason.JSONTokenizer token) throws org.xinuc.jason.JSONException {
     java.util.Hashtable hash = null;
     char c = 0;
     java.lang.String key = null;
@@ -22,7 +22,7 @@ public class JSONObject extends java.lang.Object {
         if ((c == 125)) {
           break label1;
         }
-        org.xinuc.json.JSONTokenizer temp$3 = token;
+        org.xinuc.jason.JSONTokenizer temp$3 = token;
         temp$3.back();
         key = token.nextValue().toString();
         c = token.nextClean();

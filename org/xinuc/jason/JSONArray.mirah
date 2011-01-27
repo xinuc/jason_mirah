@@ -1,4 +1,4 @@
-package org.xinuc.json
+package org.xinuc.jason
 
 import java.util.Vector
 

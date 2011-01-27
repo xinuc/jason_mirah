@@ -1,4 +1,4 @@
-package org.xinuc.json
+package org.xinuc.jason
 
 class JSON
   def self.parse(str:string):Object throws JSONException
