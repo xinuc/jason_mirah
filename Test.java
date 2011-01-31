@@ -9,7 +9,10 @@ import java.io.File;
 
 public class Test{
   public static void main(String[] argv) throws IOException, JSONException {
-    String str = readFile("Test.json");
+    if(argv.length < 1 ){
+      System.out.println("Usage: java Test <json filename>"); return;
+    }
+    String str = readFile(argv[0]);
     Object json = JSON.parse(str);
     System.out.println(json);
   }
