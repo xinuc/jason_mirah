@@ -103,7 +103,7 @@ public class JSONTokenizer extends java.lang.Object {
                     }
                     else {
                       if ((c == 34)) {
-                        buffer.append(34);
+                        buffer.append("\"");
                       }
                       else {
                         if ((c == 117)) {

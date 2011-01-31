@@ -77,7 +77,7 @@ class JSONTokenizer
         elsif c == 114 # 'r'
           buffer.append 13 # '\r'
         elsif c == 34 # '"'
-          buffer.append 34 # '"'
+          buffer.append "\"" # '"'
         elsif c == 117 # 'u'
           buffer.append (char Integer.parseInt(self.next(4), 16)) # presumably, utf 8 chars
         #elsif c == 120 # 'x' there's no spec about this in json.org
