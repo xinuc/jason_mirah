@@ -250,11 +250,11 @@ public class JSONTokenizer extends java.lang.Object {
       try {
         return java.lang.Integer.valueOf(str);
       }
-      catch (java.lang.Exception tmp$ex$2028) {
+      catch (java.lang.Exception tmp$ex$2032) {
         try {
           return java.lang.Double.valueOf(str);
         }
-        catch (java.lang.Exception tmp$ex$2030) {
+        catch (java.lang.Exception tmp$ex$2034) {
           throw this.error("Invalid value '" + str + "'");
         }
       }
