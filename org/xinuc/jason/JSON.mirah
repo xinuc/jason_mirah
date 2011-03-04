@@ -1,6 +1,13 @@
 package org.xinuc.jason
 
+import java.io.InputStream
+
 class JSON
+  def self.parse(stream:InputStream):Object
+    jsonUtils = JSONUtils.new
+    return self.parse(jsonUtils.streamToString(stream))
+  end
+  
   def self.parse(str:string):Object throws JSONException
     token = JSONTokenizer.new(str)
     c = token.nextClean
