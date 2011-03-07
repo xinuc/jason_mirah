@@ -84,38 +84,43 @@ public class JSONTokenizer extends java.lang.Object {
           if ((c == 92)) {
             c = this.next();
             if ((c == 34)) {
-              buffer.append("\"");
+              buffer.append(((char)(34)));
             }
             else {
               if ((c == 47)) {
-                buffer.append("/");
+                buffer.append(((char)(47)));
               }
               else {
-                if ((c == 98)) {
-                  buffer.append(8);
+                if ((c == 92)) {
+                  buffer.append(((char)(92)));
                 }
                 else {
-                  if ((c == 102)) {
-                    buffer.append(12);
+                  if ((c == 98)) {
+                    buffer.append(((char)(8)));
                   }
                   else {
-                    if ((c == 116)) {
-                      buffer.append(9);
+                    if ((c == 102)) {
+                      buffer.append(((char)(12)));
                     }
                     else {
-                      if ((c == 110)) {
-                        buffer.append(10);
+                      if ((c == 116)) {
+                        buffer.append(((char)(9)));
                       }
                       else {
-                        if ((c == 114)) {
-                          buffer.append(13);
+                        if ((c == 110)) {
+                          buffer.append(((char)(10)));
                         }
                         else {
-                          if ((c == 117)) {
-                            buffer.append(((char)(java.lang.Integer.parseInt(this.next(4), 16))));
+                          if ((c == 114)) {
+                            buffer.append(((char)(13)));
                           }
                           else {
-                            throw this.error("Unexpected token '" + ((char)(c)) + "'");
+                            if ((c == 117)) {
+                              buffer.append(((char)(java.lang.Integer.parseInt(this.next(4), 16))));
+                            }
+                            else {
+                              throw this.error("Unexpected token '" + ((char)(c)) + "'");
+                            }
                           }
                         }
                       }
