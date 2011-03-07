@@ -1,8 +1,7 @@
 // Generated from JSONUtils.mirah
 package org.xinuc.jason;
 public class JSONUtils extends java.lang.Object {
-  public static void main(java.lang.String[] argv) {
-  public static java.lang.Object streamToString(java.io.InputStream stream) {
+  public java.lang.String streamToString(java.io.InputStream stream) {
     java.io.StringWriter writer = null;
     char[] buffer = null;
     java.io.BufferedReader reader = null;

@@ -3,7 +3,6 @@ package org.xinuc.jason;
 public class JSONTokenizer extends java.lang.Object {
   private int index;
   private java.lang.String source;
-  public static void main(java.lang.String[] argv) {
   public  JSONTokenizer(java.lang.String str) {
     this.index = 0;
     this.source = str;
