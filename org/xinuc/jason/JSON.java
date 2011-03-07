@@ -2,9 +2,7 @@
 package org.xinuc.jason;
 public class JSON extends java.lang.Object {
   public static java.lang.Object parse(java.io.InputStream stream) throws org.xinuc.jason.JSONException, java.io.IOException {
-    org.xinuc.jason.JSONUtils jsonUtils = null;
-    jsonUtils = new org.xinuc.jason.JSONUtils();
-    return org.xinuc.jason.JSON.parse(jsonUtils.streamToString(stream));
+    return org.xinuc.jason.JSON.parse(org.xinuc.jason.JSONUtils.streamToString(stream));
   }
   public static java.lang.Object parse(java.lang.String str) throws org.xinuc.jason.JSONException {
     org.xinuc.jason.JSONTokenizer token = null;

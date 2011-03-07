@@ -9,11 +9,11 @@ import java.io.BufferedReader
 import java.io.InputStreamReader
 
 class JSONUtils
-  def streamToString(stream:InputStream):String throws IOException
+  def self.streamToString(stream:InputStream):String throws IOException
     if stream != null
       writer = StringWriter.new
       buffer = char[1024]
-      
+
       begin
         reader = BufferedReader.new(InputStreamReader.new(stream, "UTF-8"))
         numReadBytes = reader.read(buffer)
@@ -24,7 +24,7 @@ class JSONUtils
       ensure
         stream.close()
       end
-      
+
       return writer.toString()
     else
       return ""

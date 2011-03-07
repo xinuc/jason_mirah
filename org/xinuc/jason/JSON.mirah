@@ -5,8 +5,7 @@ import java.io.IOException
 
 class JSON
   def self.parse(stream:InputStream):Object throws JSONException, IOException
-    jsonUtils = JSONUtils.new
-    return parse(jsonUtils.streamToString(stream))
+    return parse(JSONUtils.streamToString(stream))
   end
   
   def self.parse(str:string):Object throws JSONException
