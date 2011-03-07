@@ -66,18 +66,20 @@ class JSONTokenizer
         raise error("Unterminated string")
       elsif c == 92 # process escaped chars '\'
         c = self.next
-        if c == 98 # 'b'
+        if c == 34 # '"'
+          buffer.append "\"" # '"'
+        elsif c == 47 # '"'
+          buffer.append "/" # '"'
+        elsif c == 98 # 'b'
           buffer.append 8 # '\b'
+        elsif c == 102 # 'f'
+          buffer.append 12 # '\f'
         elsif c == 116 # 't'
           buffer.append 9 # '\t'
         elsif c == 110 # 'n'
           buffer.append 10 # '\n'
-        elsif c == 102 # 'f'
-          buffer.append 12 # '\f'
         elsif c == 114 # 'r'
           buffer.append 13 # '\r'
-        elsif c == 34 # '"'
-          buffer.append "\"" # '"'
         elsif c == 117 # 'u'
           buffer.append (char Integer.parseInt(self.next(4), 16)) # presumably, utf 8 chars
         #elsif c == 120 # 'x' there's no spec about this in json.org

@@ -3,6 +3,7 @@ package org.xinuc.jason;
 public class JSONTokenizer extends java.lang.Object {
   private int index;
   private java.lang.String source;
+  public static void main(java.lang.String[] argv) {
   public  JSONTokenizer(java.lang.String str) {
     this.index = 0;
     this.source = str;
@@ -82,35 +83,40 @@ public class JSONTokenizer extends java.lang.Object {
         else {
           if ((c == 92)) {
             c = this.next();
-            if ((c == 98)) {
-              buffer.append(8);
+            if ((c == 34)) {
+              buffer.append("\"");
             }
             else {
-              if ((c == 116)) {
-                buffer.append(9);
+              if ((c == 47)) {
+                buffer.append("/");
               }
               else {
-                if ((c == 110)) {
-                  buffer.append(10);
+                if ((c == 98)) {
+                  buffer.append(8);
                 }
                 else {
                   if ((c == 102)) {
                     buffer.append(12);
                   }
                   else {
-                    if ((c == 114)) {
-                      buffer.append(13);
+                    if ((c == 116)) {
+                      buffer.append(9);
                     }
                     else {
-                      if ((c == 34)) {
-                        buffer.append("\"");
+                      if ((c == 110)) {
+                        buffer.append(10);
                       }
                       else {
-                        if ((c == 117)) {
-                          buffer.append(((char)(java.lang.Integer.parseInt(this.next(4), 16))));
+                        if ((c == 114)) {
+                          buffer.append(13);
                         }
                         else {
-                          throw this.error("Unexpected token '" + ((char)(c)) + "'");
+                          if ((c == 117)) {
+                            buffer.append(((char)(java.lang.Integer.parseInt(this.next(4), 16))));
+                          }
+                          else {
+                            throw this.error("Unexpected token '" + ((char)(c)) + "'");
+                          }
                         }
                       }
                     }
@@ -250,11 +256,11 @@ public class JSONTokenizer extends java.lang.Object {
       try {
         return java.lang.Integer.valueOf(str);
       }
-      catch (java.lang.Exception tmp$ex$2032) {
+      catch (java.lang.Exception tmp$ex$2038) {
         try {
           return java.lang.Double.valueOf(str);
         }
-        catch (java.lang.Exception tmp$ex$2034) {
+        catch (java.lang.Exception tmp$ex$2040) {
           throw this.error("Invalid value '" + str + "'");
         }
       }
