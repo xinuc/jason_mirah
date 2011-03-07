@@ -20,3 +20,7 @@ The mapping between JSON objects and Java Objects:
 </pre>
 
 It should parse valid JSON strings correctly. Please report if you find any bug.
+
+Contributors:
+Nugroho Herucahyono
+Stephan Leroux
