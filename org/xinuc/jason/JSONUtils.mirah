@@ -9,7 +9,7 @@ import java.io.BufferedReader
 import java.io.InputStreamReader
 
 class JSONUtils
-  def streamToString(stream:InputStream):String
+  def streamToString(stream:InputStream):String throws IOException
     if stream != null
       writer = StringWriter.new
       buffer = char[1024]

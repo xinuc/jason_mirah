@@ -1,11 +1,12 @@
 package org.xinuc.jason
 
 import java.io.InputStream
+import java.io.IOException
 
 class JSON
-  def self.parse(stream:InputStream):Object
+  def self.parse(stream:InputStream):Object throws JSONException, IOException
     jsonUtils = JSONUtils.new
-    return self.parse(jsonUtils.streamToString(stream))
+    return parse(jsonUtils.streamToString(stream))
   end
   
   def self.parse(str:string):Object throws JSONException
